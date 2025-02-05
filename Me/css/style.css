@@ -1,0 +1,38 @@
+body {
+    background-color: #B6B4C2;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-style:initial;
+    text-align: center;
+    padding: 5px;
+    font-size: 17px;
+}
+
+header {
+    background-color: #E5C1CD;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+section{
+    margin: 20px;
+}
+
+h1 {
+    font-size: 2em
+}
+
+img{
+    width: 300px
+}
+
+footer{
+    background-color: #AAC9CE;
+    color: white;
+    text-align: center;
+    position: fixed;
+    padding: 10px;
+    width: 100%;
+    bottom: 0;
+}
