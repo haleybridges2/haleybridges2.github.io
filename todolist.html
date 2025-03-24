@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Me/css/style.css">
+    <script src="/site.js" defer></script>
+    <title>To-Do List</title>
+    <a href="index.html">Home</a>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input id="new-todo" placeholder="Add a new item">
+    <button id="add-todo">Add</button>
+    <ul class="todo-list"></ul>
+    
+    <script>
+        const todoList = document.querySelector('.todo-list');
+        const input = document.getElementById('new-todo');
+        
+        const getTodos = () => JSON.parse(localStorage.getItem('todo-list')) || [];
+        const saveTodos = (todos) => localStorage.setItem('todo-list', JSON.stringify(todos));
+        
+        const renderTodos = () => {
+            todoList.innerHTML = getTodos().map(({ text }) => `<li class="todo">${text}</li>`).join('');
+        };
+        
+        document.getElementById('add-todo').addEventListener('click', () => {
+            const text = input.value.trim();
+            if (!text) return;
+            const todos = [...getTodos(), { text, completed: false }];
+            saveTodos(todos);
+            renderTodos();
+            input.value = '';
+        });
+        
+        renderTodos();
+    </script>
+</body>
+</html>
